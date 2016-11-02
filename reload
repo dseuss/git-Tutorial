@@ -1,0 +1,10 @@
+#!/usr/bin/osascript
+
+property theURL : "file:///Users/dsuess/Documents/git%20Tutorial/presentation.html"
+
+tell application "Safari"
+    repeat with thisTab in (every tab of every window whose URL starts with theURL)
+        display notification "Hello!"
+        tell thisTab to do JavaScript "location.reload();"
+    end repeat
+end tell
