@@ -11,6 +11,8 @@
 
       body {
         font-family: 'Droid Serif';
+        line-height: .7em;
+        font-size: 32pt;
       }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
@@ -25,7 +27,9 @@
       .inverse h1, .inverse h2 {
         color: #f3f3f3;
       }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code, .remark-inline-code {
+        font-family: 'Ubuntu Mono';
+      }
 
       .image-100 img {
         width: 100%;
@@ -43,6 +47,8 @@
   <body>
 <!-- ###################################################################### -->
     <textarea id="source">
+
+
 
 class: center, middle, inverse
 
@@ -68,14 +74,16 @@ Not talking about: Branches, hooks, tags, rebasing, stashing, blaming, ...
 
 ???
 
----
 
+
+
+
+---
 class: center, middle, inverse
 
-# What is git and why should I use it?
+# 1. What is git and why should I use it?
 
 ---
-
 class: center, middle
 
 # Keeping track of changes
@@ -83,14 +91,12 @@ class: center, middle
 .image-100[![this could be your thesis folder](img/folderview.png)]
 
 ---
-
 class: center, middle
 
 # Collaborating via mail
 .image-100[![this could be your inbox](img/mail.png)]
 
 ---
-
 class: center, middle
 
 # ... or Dropbox
@@ -106,13 +112,11 @@ class: center, middle, inverse
 # So what is git?
 
 ---
-
 class: center, middle
 
 # Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 
 ---
-
 class: center, middle
 
 .image-50[![Can I haz?](img/canihaz.jpg)]
@@ -121,6 +125,114 @@ class: center, middle
 
 
 
+
+
+---
+class: center, middle, inverse
+
+# 2. Knowing your way around the repository
+
+---
+
+class:
+
+## **Step 1:** Clone exisiting repository
+
+```bash
+>>> git clone https://github.com/dseuss/git-tutorial.git
+```
+
+.image-100[![github cloning](img/github_clone.png)]
+
+
+---
+class:
+
+## **Step 2:** What is going on?
+
+* show full log
+
+```bash
+>>> git --no-pager log
+
+commit dff5222b64f753288847ff409d19c21fa70f2472
+Author: Daniel Suess <daniel@dsuess.me>
+Date:   Thu Nov 3 12:58:46 2016 +0100
+
+    Finish intro section
+
+commit 00d9f4e8d75a2f286ea1fe900775efdc4c2f6271
+Author: Daniel Suess <daniel@dsuess.me>
+Date:   Wed Nov 2 21:30:23 2016 +0100
+
+    Add intro slides
+
+...
+```
+
+* show short log
+
+```bash
+>>> git --no-pager lg
+* dff5222 - (HEAD -> master, origin/master) Finish intro section (2 hours ago) <Daniel Suess>
+* 00d9f4e - Add intro slides (18 hours ago) <Daniel Suess>
+...
+```
+
+???
+
+- Note the `HEAD` pointers
+
+---
+class:
+
+## **Step 3:** What happend?
+
+```bash
+>>> git --no-pager show dff5222
+
+commit 00d9f4e8d75a2f286ea1fe900775efdc4c2f6271
+Author: Daniel Suess <daniel@dsuess.me>
+Date:   Wed Nov 2 21:30:23 2016 +0100
+
+    Add intro slides
+
+diff --git a/img/folderview.png b/img/folderview.png
+new file mode 100644
+index 0000000..d5bff72
+Binary files /dev/null and b/img/folderview.png differ
+...
+diff --git a/presentation.html b/presentation.html
+index 1485b4f..171429f 100644
+--- a/presentation.html
++++ b/presentation.html
+@@ -26,6 +26,10 @@
+         color: #f3f3f3;
+       }
+       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
++
++      .image-100 img {
++        width: 100%;
++      }
+...
+```
+
+
+---
+class:
+
+
+## **Intermezzo**: What we have learned so far...
+
+* all the information git uses is kept in a _repository_
+* to obtain an existing repo, _clone_ it
+* a repository consists of a series of _commits_ (for now)
+* each commit constists of:
+  * a unique _commit id_ (e.g. `dff5222b64f753288847ff409d19c21fa70f2472`)
+  * an author and timestamp, when it was created
+  * a _commit message_
+  * a record of all the _changes_ compared to the previous commit
+* pointers to particular commits (e.g. `HEAD`, remotes, ...)
 
 
     </textarea>
