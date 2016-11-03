@@ -1,5 +1,6 @@
 #!/usr/bin/osascript
 
+
 property theURL : "file:///Users/dsuess/Documents/git%20Tutorial/presentation.html"
 
 tell application "Safari"
