@@ -29,6 +29,7 @@
       }
       .remark-code, .remark-inline-code {
         font-family: 'Ubuntu Mono';
+        line-height: .5em;
       }
 
       .image-100 img {
@@ -232,8 +233,45 @@ class:
   * an author and timestamp, when it was created
   * a _commit message_
   * a record of all the _changes_ compared to the previous commit
-* pointers to particular commits (e.g. `HEAD`, remotes, ...)
+* references to particular commits
+	* `HEAD` -> currently checked out commit
+  * `master` -> last commit on the branch `master`
+	* `origin/master` -> last commit on the remote branch `master`
 
+
+---
+class:
+
+## **Step 4**: Moving around
+
+* set the whole working directory to a prior state
+
+```bash
+>>> git checkout d566867
+Note: checking out 'd566867'.
+
+You are in 'detached HEAD' state....
+```
+
+* go back to the latest commit (for now)
+
+```bash
+>>> git checkout master
+Previous HEAD position was d566867... Implement tool for file view screenshot
+Switched to branch 'master'...
+```
+
+* set a single file to a prior stat
+
+```bash
+>>> git checkout dfe7cfc presentation.html
+```
+
+* reset working directory to last commit
+
+```bash
+>>> git reset --hard master
+```
 
     </textarea>
 <!-- ###################################################################### -->
