@@ -1,4 +1,5 @@
 #!/usr/bin/osascript
+# If you go back two more commits, you will find the gem
 
 property theURL : "file:///Users/dsuess/Documents/git%20Tutorial/presentation.html"
 
