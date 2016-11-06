@@ -36,6 +36,10 @@ body {
 				width: 100%;
 			}
 
+			.image-75 img {
+				width: 50%;
+			}
+
 			.image-50 img {
 				width: 50%;
 			}
@@ -74,10 +78,9 @@ Notes for the _first_ slide!
 
 1. What is git and why should I use it?
 2. Reading
-3. Some internals
-4. Writing
-5. Merging
-6. Tips for writing papers in LaTex
+3. Writing
+4. Merging
+5. Tips for writing papers in LaTex
 
 Not talking about: Branches, hooks, tags, rebasing, stashing, blaming, ...
 
@@ -123,7 +126,7 @@ class: center, middle, inverse
 ---
 class: center, middle
 
-# Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+# “Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.”
 
 ---
 class: center, middle
@@ -252,7 +255,7 @@ class:
 
 ## **Step 4**: Moving around
 
-* set the whole working directory to a prior state
+* set the whole working directory & `HEAD` to a prior state
 
 ```bash
 >>> git checkout d566867
@@ -261,7 +264,7 @@ Note: checking out 'd566867'.
 You are in 'detached HEAD' state....
 ```
 
-* go back to the latest commit (for now)
+* go back to the latest commit in `master`
 
 ```bash
 >>> git checkout master
@@ -269,7 +272,7 @@ Previous HEAD position was d566867... Implement tool for file view screenshot
 Switched to branch 'master'...
 ```
 
-* set a single file to a prior stat
+* set a single file to a prior state
 
 ```bash
 >>> git checkout dfe7cfc presentation.html
@@ -297,6 +300,75 @@ class: center, middle
 
 https://pixabay.com/p-37514/?no_redirect
 
+
+---
+class: center, middle, inverse
+
+# 2. Writing to a repository
+
+---
+
+# **Step 1:** Adding changes
+
+* to see differences of working directory and last commit
+
+```bash
+>>> git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   presentation.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+* add changes or new file to _staging area_
+
+```bash
+>>> git add presentation.html
+```
+
+* to get detailed report on differences between working directory and staging area, use `git diff` or `git difftool`
+
+
+---
+
+# **Step 2:** Commiting changes
+
+* add changes in staging area to the repository as new commit
+
+```bash
+git commit
+```
+
+.image-100[![git commit window](img/commit_window.png)]
+
+
+---
+
+# **Step 3:** Syncing with the remote
+
+* Rember the `URL` in `git clone URL`?
+
+* to _push_ your local changes to the remote repository
+
+```bash
+git push
+```
+
+* to _pull_ changes from the remote to your local repo
+
+```bash
+git pull
+```
+
+---
+class: center, middle, inverse
+
+# Exercise: One man show
 
     </textarea>
 <!-- ###################################################################### -->
