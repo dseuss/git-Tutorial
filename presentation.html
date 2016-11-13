@@ -401,6 +401,46 @@ class: center, middle, inverse
 
 ---
 
+# What to do with conflicting commits?
+
+.image-100[![confliciting commits](img/conflicting.png)]
+
+```bash
+>>> git pull
+...
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+```bash
+>>> git push
+...
+ ! [rejected]        master -> master (non-fast-forward)
+```
+
+---
+# How to merge conflicts?
+
+.image-100[![meld](img/meld.png)]
+
+_Note: for a better 3-way diff in `meld` put the following in .git/config_
+
+```bash
+[merge]
+tool = mymeld
+conflictstyle = diff3
+[mergetool "mymeld"]
+cmd = meld $LOCAL $BASE $REMOTE -o $MERGED --auto-merge
+```
+
+---
+class: center, middle, inverse
+
+# Exercise: Conflict Management
+
+---
+class: center, middle
+
+# In groups of two, merge the conflicts from the previous exercise.
 
 ---
 class: center, middle, inverse
