@@ -17,7 +17,27 @@ body {
 				font-family: 'Yanone Kaffeesatz';
 				font-weight: normal;
 				line-height: 1em;
+        margin-bottom: 0em;
 			}
+
+      .remark-slide-content h1 { font-size: 4em; }
+      .remark-slide-content h2 { font-size: 3em; }
+      .remark-slide-content h3 { font-size: 2em; }
+      .remark-slide-content p,ul {
+        font-size: 18pt;
+        line-height: 25pt;
+      }
+
+      .agenda {
+        font-size: 1.6em;
+        line-height: 1.6em;
+      }
+
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+        align: left;
+      }
 
 			.inverse {
 				background: #272822;
@@ -29,6 +49,7 @@ body {
 			}
 			.remark-code, .remark-inline-code {
 				font-family: 'Ubuntu Mono';
+          font-size: 1.0em;
 				line-height: .5em;
 			}
 
@@ -41,11 +62,13 @@ body {
 			}
 
 			.image-50 img {
-				width: 50%;
+				width: 40%;
 			}
 
 			.footnote {
-				float: footnote;
+				float: position: absolute;
+        bottom: 3em;
+        font-size: .7em;
 			}
 
 			.left-column {
@@ -66,7 +89,7 @@ body {
 class: center, middle, inverse
 
 # While my git gently clones:
-## _A hands-on introduction to git for the working scientist_
+### _A hands-on introduction to git for the working scientist_
 
 ???
 
@@ -76,13 +99,15 @@ Notes for the _first_ slide!
 
 # Agenda
 
+.agenda[
 1. What is git and why should I use it?
 2. Reading
 3. Writing
 4. Merging
 5. Tips for writing papers in LaTex
+]
 
-Not talking about: Branches, hooks, tags, rebasing, stashing, blaming, ...
+.footnote[Not talking about: Branches, hooks, tags, rebasing, stashing, blaming, ...]
 
 ???
 
@@ -96,22 +121,22 @@ class: center, middle, inverse
 # 1. What is git and why should I use it?
 
 ---
-class: center, middle
+class:
 
-# Keeping track of changes
+## Keeping track of changes
 
 .image-100[![this could be your thesis folder](img/folderview.png)]
 
 ---
-class: center, middle
+class:
 
-# Collaborating via mail
+## Collaborating via mail
 .image-100[![this could be your inbox](img/mail.png)]
 
 ---
-class: center, middle
+class:
 
-# ... or Dropbox
+## ... or Dropbox
 
 .image-100[![this could be your dropbox](img/dropbox.png)]
 
@@ -126,14 +151,14 @@ class: center, middle, inverse
 ---
 class: center, middle
 
-# “Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.”
+## “Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.”
 
 ---
 class: center, middle
 
 .image-50[![Can I haz?](img/canihaz.jpg)]
 
-# https://git-scm.com
+## https://git-scm.com
 
 
 
@@ -150,12 +175,11 @@ class:
 
 ## **Step 1:** Clone exisiting repository
 
+.image-100[![github cloning](img/github_clone.png)]
+
 ```bash
 >>> git clone https://github.com/dseuss/git-tutorial.git
 ```
-
-.image-100[![github cloning](img/github_clone.png)]
-
 
 ---
 class:
@@ -181,6 +205,9 @@ Date:   Wed Nov 2 21:30:23 2016 +0100
 
 ...
 ```
+
+---
+## **Step 2:** What is going on?
 
 * show short log
 
@@ -222,10 +249,6 @@ index 1485b4f..171429f 100644
          color: #f3f3f3;
        }
        .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-+
-+      .image-100 img {
-+        width: 100%;
-+      }
 ...
 ```
 
@@ -234,7 +257,7 @@ index 1485b4f..171429f 100644
 class:
 
 
-## **Intermezzo**: What we have learned so far...
+## What we have learned so far...
 
 * all the information git uses is kept in a _repository_
 * to obtain an existing repo, _clone_ it
@@ -259,17 +282,12 @@ class:
 
 ```bash
 >>> git checkout d566867
-Note: checking out 'd566867'.
-
-You are in 'detached HEAD' state....
 ```
 
 * go back to the latest commit in `master`
 
 ```bash
 >>> git checkout master
-Previous HEAD position was d566867... Implement tool for file view screenshot
-Switched to branch 'master'...
 ```
 
 * set a single file to a prior state
@@ -294,7 +312,7 @@ class: center, middle
 
 .image-50[![sad lego](img/sad_lego.png)]
 
-# “I have lost my precious gem. The last time I saw it, it was in my `safe.txt` at commit `141fc84`.”
+## “I have lost my precious gem. The last time I saw it, it was in my `safe.txt` at commit `141fc84`.”
 
 ???
 
@@ -308,7 +326,7 @@ class: center, middle, inverse
 
 ---
 
-# **Step 1:** Adding changes
+## **Step 1:** Adding changes
 
 * to see differences of working directory and last commit
 
@@ -336,7 +354,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 ---
 
-# **Step 2:** Commiting changes
+## **Step 2:** Commiting changes
 
 * add changes in staging area to the repository as new commit
 
@@ -349,7 +367,7 @@ git commit
 
 ---
 
-# **Step 3:** Syncing with the remote
+## **Step 3:** Syncing with the remote
 
 * Rember the `URL` in `git clone URL`?
 
@@ -371,28 +389,29 @@ class: center, middle, inverse
 # Exercise: One man show.
 
 ---
-class: middle
 
+## One man show
+
+.agenda[
 1. Create an empty repository (e.g. on gitlab.com) and clone it to your machine.
 2. Create a file with some content in the local repository, add the changes and commit them.
 3. Push your changes to the remote repository.
-
+]
 ---
 class: center, middle, inverse
 
 # Exercise: Collaborating
 
 ---
-class: middle
+## Collaborating
 
+.agenda[
 1. A: give B full read & write access to your repository on gitlab: (cog → Members)
 2. B: Clone the repository from A and submit a new commit
 3. A: Pull the changes from B and submit a new commit
 4. B: Pull the changes from A
 5. Now both make changes at the same time and try to pull them.
-
-.image-100[![where to find members menu](img/gitlab.png)]
-
+]
 
 ---
 class: center, middle, inverse
@@ -401,7 +420,7 @@ class: center, middle, inverse
 
 ---
 
-# What to do with conflicting commits?
+## What to do with conflicting commits?
 
 .image-100[![confliciting commits](img/conflicting.png)]
 
@@ -418,7 +437,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 ---
-# How to merge conflicts?
+## How to merge conflicts?
 
 .image-100[![meld](img/meld.png)]
 
@@ -438,9 +457,15 @@ class: center, middle, inverse
 # Exercise: Conflict Management
 
 ---
-class: center, middle
 
-# In groups of two, merge the conflicts from the previous exercise.
+## Conflict Management
+
+.agenda[
+1. Set up a shared repository with each partner having the same state (or use the one from the last exercise)
+2. Both partners make changes to the repository including at least one conflict.
+3. A pushes his changes, afterwards B should merge his changes appropriately and push to the remote.
+4. Repeat two with interchanged roles.
+]
 
 ---
 class: center, middle, inverse
@@ -466,6 +491,9 @@ class: center, middle
 class: center, middle
 
 # Never do many simple changes (spell check, variable name replacement, ...) while somebody else might be working on the same file.
+
+---
+class: inverse
 
     </textarea>
 <!-- ###################################################################### -->
